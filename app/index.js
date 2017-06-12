@@ -9,16 +9,6 @@ var PropTypes = require('prop-types');
 // UI *required this allway need to be set
 
 
-class App extends React.Component {
-	render(){
-		return (
-			<div>
-				Hello World!
-			</div>
-		)
-	}
-};
-
 class Users extends React.Component {
 	render(){
 		var friends = this.props.list.filter(function(user){
@@ -84,8 +74,9 @@ Users.PropTypes = {
 	}))
 };
 
+var App = require('./components/App');
+
 ReactDom.render(
-	// <App />,
 	// <Users 
 	// 	list={[
 	// 		{name:"Tyler", friend:true},
@@ -93,10 +84,11 @@ ReactDom.render(
 	// 		{name:"Michael", friend:false},
 	// 		{name:"Jessica", friend:false}
 	// 	]}/>,
-	<Badge 
-		img="https://avatars0.githubusercontent.com/u/2933430?v=3&s=460"
-		name="Julian"
-		username="juliancpt"
-	/>,
+	// <Badge 
+	// 	img="https://avatars0.githubusercontent.com/u/2933430?v=3&s=460"
+	// 	name="Julian"
+	// 	username="juliancpt"
+	// />,
+	<App />,
 	document.getElementById('app')
 );
