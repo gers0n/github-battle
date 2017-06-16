@@ -10,8 +10,11 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(js)$/, use: 'babel-loader' },
+      { test: /\.(js)$/, use: 'babel-loader'},
       { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]}
+    ],
+    loaders: [
+      { test: /\.jsx?/, exclude: /node_modules/ , loader:'babel-loader'}
     ]
   },
   /*to fix the reflesh issue*/
