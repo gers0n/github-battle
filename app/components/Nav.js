@@ -1,5 +1,5 @@
 var React = require('react'),
-	Link = require('react-router-dom').Link,/*only to display a url or link*/
+	// Link = require('react-router-dom').Link,/*only to display a url or link*/
 	NavLink = require('react-router-dom').NavLink; //to change some state depending if your at that dir
 
 function Nav(){

@@ -29,7 +29,18 @@ a {
 	font-weight: bold;
 	cursor: pointer;
 }
+.reset {
+	border: none;
+	background: transparent;
+	color: #d0021b;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
 
+.reset:hover {
+	cursor: pointer;
+}
 .popular-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -47,6 +58,7 @@ a {
 
 .avatar {
 	width: 150px;
+	height: 150px;
 	border-radius: 50%;
 }
 
@@ -117,10 +129,11 @@ a {
 	margin: 10px auto;
 }
 
-.button:hover:enabled {
+.button:hover {
 	background: linear-gradient(#1a1a1a, #0a0a0a);
 	color: #fff;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .button:active {
