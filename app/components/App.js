@@ -3,6 +3,7 @@ var React = require('react'),
 	ReactRouter = require('react-router-dom'),
 	Nav = require('./Nav'),
 	Battle = require('./Battle'),
+	Results = require('./Results'),
 	Home = require('./Home');
 
 var Router = ReactRouter.BrowserRouter,
@@ -17,8 +18,8 @@ class App extends React.Component {
 					<Nav />
 					<Switch>{/*render only an expecific route*/}
 						<Route exact path="/" component={Home} />
-						<Route path="/battle" component={Battle} />
-						<Route path="/popular" component={Popular} />
+						<Route exact path="/battle" component={Battle} />
+						<Route path="/battle/results" component={Results} />
 						<Route path="/popular" component={Popular} />
 						<Route render={function(){
 							return <p>Not Found</p>;
