@@ -4,12 +4,14 @@ var api = require("../utils/api");
 var Link = require('react-router-dom').Link;
 var PropTypes =require('prop-types');
 var PlayerPreview = require('./PlayerPreview');
+var Loading = require("./Loading");
+
 
 function Profile(props){
-	let into = props.info;
-	
+	let info = props.info;
+
 	return (
-		<PlayerPreview avatar={info.avart_url} username={info.login}>
+		<PlayerPreview avatar={info.avatar_url} username={info.login}>
 			<ul className='space-list-items'>
 				{info.name && <li>{info.name}</li>}
 				{info.location && <li>{info.location}</li>}
@@ -81,7 +83,7 @@ class Results extends React.Component {
 			loading = this.state.loading;
 
 		if(loading === true){
-			return <p>Loading</p>;
+			return <Loading />
 		}
 
 		if(error){
