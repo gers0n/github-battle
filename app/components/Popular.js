@@ -1,6 +1,7 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 var api = require("../utils/api");
+var Loading = require("./Loading");
 
 /*this is a stateless component*/
 function SelectLanguage  (props) {
@@ -126,7 +127,6 @@ class Popular extends React.Component {
 		this.updateLanguage(this.state.selectedLanguage)
 	}
 	updateLanguage(lang) {
-		console.log(lang);
 		this.setState(function() {
 			return {
 				selectedLanguage: lang,
@@ -148,8 +148,8 @@ class Popular extends React.Component {
 					selectedLanguage={this.state.selectedLanguage}
 					onSelect={this.updateLanguage}
 				/>
-				{!this.state.repos
-					? <p>LOADING</p>
+				{!this.state.repos.length > 0
+					? <Loading text="Downloading" speed={10}/>
 					: <RepoGrid repos={this.state.repos} />}
 			</div>
 		)

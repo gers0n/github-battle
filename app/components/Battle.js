@@ -80,7 +80,6 @@ class Battle extends React.Component {
 			var newState = {};
 			newState[id+"Name"] = username;
 			newState[id+"Image"] = "https://github.com/"+ username +".png?size=200";
-			console.info("new state", newState);
 			return newState;
 		});
 	}
@@ -89,7 +88,6 @@ class Battle extends React.Component {
 			var newState = {};
 			newState[id+"Name"] = "";
 			newState[id+"Image"] = null;
-			console.info("new state", newState);
 			return newState;
 		})
 	}
