@@ -20,6 +20,11 @@ function Nav(){
 					Popular
 				</NavLink>
 			</li>
+			<li>
+				<NavLink exact activeClassName="active" to="/cuentas">
+					Cuentas
+				</NavLink>
+			</li>
 		</ul>
 	)
 };

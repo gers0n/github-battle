@@ -1,0 +1,15 @@
+.acreditacion {
+	border: 1px solid gray;
+	padding: 10px;
+	margin: 5px auto;
+	box-shadow: 2px 2px 2px 2px #a29696;
+	border-radius: 5px;
+}
+
+.acreditacion > * {
+	margin: 0;
+}
+
+.acreditacion > p {
+	font-style: italic;
+}
