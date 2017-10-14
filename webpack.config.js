@@ -4,7 +4,7 @@ var webpack = require('webpack');
 
 
 //NODE_ENV to production
-//uglify  
+//uglify
 
 
 const config = {

@@ -1,17 +1,17 @@
 var React = require('react'),
-  Popular = require('./Popular'),
+  Popular = require('./components/Popular'),
   ReactRouter = require('react-router-dom'),
-  Nav = require('./Nav'),
-  Battle = require('./Battle'),
-  Results = require('./Results'),
-  CuentasDashboard = require('../../Cuentas/CuentasDashboard'),
-  Home = require('./Home');
+  Nav = require('./components/Nav'),
+  Battle = require('./components/Battle'),
+  Results = require('./components/Results'),
+  CuentasDashboard = require('./components/Cuentas/CuentasDashboard'),
+  Home = require('./components/Home');
 
 var Router = ReactRouter.BrowserRouter,
   Switch = ReactRouter.Switch,
   Route = ReactRouter.Route;
 
-class App extends React.Component {
+class AppRoute extends React.Component {
   render(){
     return (
       <Router>
@@ -34,4 +34,4 @@ class App extends React.Component {
   }
 };
 
-module.exports = App;
+module.exports = AppRoute;
