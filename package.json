@@ -19,7 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.19.2",
     "query-string": "^4.3.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
