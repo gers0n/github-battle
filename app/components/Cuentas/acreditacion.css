@@ -1,14 +1,23 @@
-.acreditacion {
-	border: 1px solid gray;
-	padding: 10px;
-	margin: 5px auto;
-	box-shadow: 2px 2px 2px 2px #a29696;
-	border-radius: 5px;
+.acreditaciones {
+	display: flex;
+}
+.acreditaciones > * {
+	margin: 0;
+	flex: 1
 }
 
-.acreditacion > * {
-	margin: 0;
+.acreditacion {
+	/*border: 1px solid gray;*/
+	padding: 10px;
+	margin: 15px;
+	box-shadow: 2px 2px 2px 2px rgba(162, 150, 150, 0.55);
+	border-radius: 5px;
+	flex: 1;
 }
+.acreditacion:hover {
+	box-shadow: 2px 2px 2px 2px rgba(162, 150, 150, 0.20)
+}
+
 
 .acreditacion > p {
 	font-style: italic;

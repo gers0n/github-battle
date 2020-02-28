@@ -6,7 +6,6 @@ var PropTypes = require('prop-types'),
 
 class PlayerInput extends React.Component {
 	constructor(props){
-		console.info("props", props);
 		super(props);
 
 		this.state = {

@@ -25,6 +25,11 @@ function Nav(){
 					Cuentas
 				</NavLink>
 			</li>
+			<li>
+				<NavLink exact activeClassName="active" to="/bebes">
+					Bebes
+				</NavLink>
+			</li>
 		</ul>
 	)
 };

@@ -1,0 +1,23 @@
+.products {
+	display: flex;
+
+}
+.product {
+    display: flex;
+    flex: 1;
+    /* max-width: 100px; */
+    margin: auto 10px;
+}
+
+.productDetail {
+    flex: 1;
+    /*display: flex;*/
+    box-shadow: 1px 1px 1px grey;
+    border-radius: 5px;
+		padding: 10px;
+}
+
+.Name, .total {
+  font-weight: bold;
+  font-size: 18px;
+}

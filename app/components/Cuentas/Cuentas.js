@@ -28,6 +28,7 @@ class Acreditacion extends React.Component {
           {this.props.Nombre}
         </h2>
         <h3>{this.props.Entidad}</h3>
+        <h3>{this.props.TipoCuenta}</h3>{/*Tipo de cuenta: Credito, Debito, Auxiliar*/}
         <p>{this.props.Tipo+ ' a '+ this.AcuerdoPago === "Credito" ? 'Pagar' : 'Cobrar'}</p>
         <p>Monto total de {this.props.Cantidad}</p>
         <p>Dia de Pago {this.props.FechaPago}</p>
@@ -56,9 +57,9 @@ Acreditacion.defaultProps = {
 
 
 
-/*  <Acreditacion 
-    Nombre="Prestamo 1" 
-    Entidad="Alaber" 
+/*  <Acreditacion
+    Nombre="Prestamo 1"
+    Entidad="Alaber"
     AcuerdoPago="Credito"
     Tipo="Documento"
     Cantidad={40000}
@@ -70,7 +71,7 @@ Acreditacion.defaultProps = {
   Entidad Bancaria: Alaber
   Cantidad/Monto: x
   Fecha de pagos: x
-  
+
   CxP
   Persona/Entidad
   Monto

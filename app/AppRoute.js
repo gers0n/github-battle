@@ -5,7 +5,8 @@ var React = require('react'),
   Battle = require('./components/Battle'),
   Results = require('./components/Results'),
   CuentasDashboard = require('./components/Cuentas/CuentasDashboard'),
-  Home = require('./components/Home');
+  Home = require('./components/Home'),
+  Bebe = require('./components/Bebe');
 
 var Router = ReactRouter.BrowserRouter,
   Switch = ReactRouter.Switch,
@@ -22,7 +23,8 @@ class AppRoute extends React.Component {
             <Route exact path="/battle" component={Battle} />
             <Route path="/battle/results" component={Results} />
             <Route path="/popular" component={Popular} />
-            <Route path="/Cuentas" exact component={CuentasDashboard} />
+            <Route path="/cuentas" exact component={CuentasDashboard} />
+            <Route path="/bebes" exact component={Bebe} />
           {/*<Route path="/Cuentas/" exact component={Cuentas} />*/}
             <Route render={function(){
               return <p>Not Found</p>;

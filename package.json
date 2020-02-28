@@ -22,7 +22,6 @@
     "query-string": "^4.3.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-primitive": "^0.1.3",
     "react-primitives": "^0.4.3",
     "react-router-dom": "^4.1.1"
   },
