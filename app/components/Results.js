@@ -1,5 +1,5 @@
 var React = require('react');
-var queryString = require('query-string');
+var queryString = require('queryString');
 var api = require("../utils/api");
 var Link = require('react-router-dom').Link;
 var PropTypes =require('prop-types');

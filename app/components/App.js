@@ -13,7 +13,7 @@ var Router = ReactRouter.BrowserRouter,
 class App extends React.Component {
   render(){
     return (
-      <Router>
+      <Router basename="/github-batle/">
         <div className="container">
           <Nav />
           <Switch>{/*render only an expecific route*/}
