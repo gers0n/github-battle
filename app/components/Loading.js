@@ -9,12 +9,12 @@ let styles = {
 	}
 };
 
-class Loading extends React.Component {
+export default class Loading extends React.Component {
 	constructor(props){
 		super(props);
 
 		this.state = {
-			text: props.text
+			text: props.text || ""
 		};
 	}
 	componentDidMount (){
@@ -58,5 +58,3 @@ Loading.defualtProps = {
 	text: 'Loading',
 	speed: 3000
 };
-
-module.exports = Loading;

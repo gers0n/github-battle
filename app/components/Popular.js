@@ -1,51 +1,34 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var api = require("../utils/api");
-var Loading = require("./Loading");
+import React from "react";
+import PropTypes from "prop-types";
+import api from "../utils/api";
+import Loading from "./Loading";
 
 /*this is a stateless component*/
-function SelectLanguage  (props) {
-	var languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
+const SelectLanguage = props => {
+  var languages = ["All", "Javascript", "Ruby", "Java", "CSS", "Python"];
 
-	return (
-		<ul className="languages">
-			{languages.map((language) => {
-				return (
-					<li 
-						style={language === props.selectedLanguage ? {'color':'#d0021b'} : null}
-						onClick={props.onSelect.bind(null, language)}
-						key={language}>
-						{language}
-					</li>
-				)
-			})}
-		</ul>
-		)
+  return (
+    <ul className="languages">
+      {languages.map(language => {
+        return (
+          <li
+            style={
+              language === props.selectedLanguage ? { color: "#d0021b" } : null
+            }
+            onClick={() => props.onSelect(language)}
+            key={language}
+          >
+            {language}
+          </li>
+        );
+      })}
+    </ul>
+  );
 };
 
-// class SelectLanguage extends React.Component {
-// 	render(){
-// 		var languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
-// 		return (
-// 			<ul className="languages">
-// 				{languages.map((language) => {
-// 					return (
-// 						<li 
-// 							style={language === this.props.selectedLanguage ? {'color':'#d0021b'} : null}
-// 							onClick={this.props.onSelect.bind(this, language)}
-// 							key={language}>
-// 							{language}
-// 						</li>
-// 					)
-// 				}, this/*pass current binding to its scope*/)}
-// 			</ul>
-// 			)
-// 	}
-// };
-
 SelectLanguage.propTypes = {
-	selectedLanguage: PropTypes.string.isRequired,
-	onSelect: PropTypes.func.isRequired
+  selectedLanguage: PropTypes.string.isRequired,
+  onSelect: PropTypes.func.isRequired
 };
 
 // function RepoItemNameLink(props){
@@ -85,75 +68,81 @@ SelectLanguage.propTypes = {
 // 	</div>)
 // }
 
-function RepoGrid(props){
-	return (
-		<ul className="popular-list">
-			{props.repos.map(function(repo, index){
-				return (<li key={repo.name} className='popular-item'>
-					<div className='popular-rank'>#{index + 1}</div>
-					<ul className='space-list-items'>
-						<li>
-							<img 
-								className='avatar'
-								src={repo.owner.avatar_url}
-								alt={'Avatar for '+repo.owner.login} />
-						</li>
-						<li><a href={repo.html_url}>{repo.name}</a></li>
-						<li>@{repo.owner.login}</li>
-						<li>{repo.stargazers_count} starts</li>
-					</ul>
-				</li>)
-			})}
-		</ul>
-	)
-};
+function RepoGrid(props) {
+  return (
+    <ul className="popular-list">
+      {props.repos.map(function(repo, index) {
+        return (
+          <li key={repo.name} className="popular-item">
+            <div className="popular-rank">#{index + 1}</div>
+            <ul className="space-list-items">
+              <li>
+                <img
+                  className="avatar"
+                  src={repo.owner.avatar_url}
+                  alt={"Avatar for " + repo.owner.login}
+                />
+              </li>
+              <li>
+                <a href={repo.html_url}>{repo.name}</a>
+              </li>
+              <li>@{repo.owner.login}</li>
+              <li>{repo.stargazers_count} starts</li>
+            </ul>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
 
 RepoGrid.propTypes = {
-	repos: PropTypes.array.isRequired
+  repos: PropTypes.array.isRequired
 };
 
+export default class Popular extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedLanguage: "All",
+      repos: []
+    };
 
-class Popular extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			selectedLanguage: 'All',
-			repos: []
-		};
+    this.updateLanguage = this.updateLanguage.bind(this);
+  }
+  componentDidMount() {
+    /*invoke by react before construc UI*/
+    this.updateLanguage(this.state.selectedLanguage);
+  }
+  updateLanguage(lang) {
+    this.setState(function() {
+      return {
+        selectedLanguage: lang,
+        repos: []
+      };
+    });
 
-		this.updateLanguage = this.updateLanguage.bind(this);
-	}
-	componentDidMount () {/*invoke by react before construc UI*/
-		this.updateLanguage(this.state.selectedLanguage)
-	}
-	updateLanguage(lang) {
-		this.setState(function() {
-			return {
-				selectedLanguage: lang,
-				repos: []
-			}
-		});
-
-		api.fetchPopularRepos(lang)
-			.then(function(repos){
-				this.setState(function(){
-					return {repos: repos};
-				})
-			}.bind(this));
-	}
-	render(){
-		return (
-			<div>
-				<SelectLanguage 
-					selectedLanguage={this.state.selectedLanguage}
-					onSelect={this.updateLanguage}
-				/>
-				{!this.state.repos.length > 0
-					? <Loading text="Downloading" speed={10}/>
-					: <RepoGrid repos={this.state.repos} />}
-			</div>
-		)
-	}
-};
-
-module.exports = Popular;
+    api.fetchPopularRepos(lang).then(
+      function(repos) {
+        this.setState(function() {
+          return { repos: repos };
+        });
+      }.bind(this)
+    );
+  }
+  render() {
+    return (
+      <div>
+        <SelectLanguage
+          selectedLanguage={this.state.selectedLanguage}
+          onSelect={this.updateLanguage}
+        />
+        {!this.state.repos.length > 0 ? (
+          <Loading text="Downloading" speed={10} />
+        ) : (
+          <RepoGrid repos={this.state.repos} />
+        )}
+      </div>
+    );
+  }
+}
