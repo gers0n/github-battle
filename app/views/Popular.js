@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import api from "../utils/api";
-import Loading from "./Loading";
+import Loading from "../components/Loading";
+import { RepoGrid } from "../components/RepoGrid";
 
 /*this is a stateless component*/
 const SelectLanguage = props => {
@@ -29,75 +30,6 @@ const SelectLanguage = props => {
 SelectLanguage.propTypes = {
   selectedLanguage: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired
-};
-
-// function RepoItemNameLink(props){
-// 	return (
-// 		<h3><a hred={props.url} >{props.name}</a></h3>
-// 	)
-// }
-// function RepoItemAtText (props){
-// 	return (
-// 		<h5>{props.name}</h5>
-// 	)
-// }
-// function RepoItemFollowers(props){
-// 	return (
-// 		<h5>{props.followers} starts</h5>
-// 	)
-// }
-
-// function RepoItemDetails(props){
-// 	return (<div>
-// 		<RepoItemNameLink />
-// 		<RepoItemAtText />
-// 		<RepoItemFollowers /></div>
-// 	)
-// };
-
-// function RepoItemImage(props){
-// 	return (
-// 		<img src={props.image} />
-// 	)
-// };
-
-// function RepoItem(props){
-// 	return (<div>
-// 		<RepoItemImage image={props.img}/>
-// 		<RepoItemDetails />
-// 	</div>)
-// }
-
-function RepoGrid(props) {
-  return (
-    <ul className="popular-list">
-      {props.repos.map(function(repo, index) {
-        return (
-          <li key={repo.name} className="popular-item">
-            <div className="popular-rank">#{index + 1}</div>
-            <ul className="space-list-items">
-              <li>
-                <img
-                  className="avatar"
-                  src={repo.owner.avatar_url}
-                  alt={"Avatar for " + repo.owner.login}
-                />
-              </li>
-              <li>
-                <a href={repo.html_url}>{repo.name}</a>
-              </li>
-              <li>@{repo.owner.login}</li>
-              <li>{repo.stargazers_count} starts</li>
-            </ul>
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
-RepoGrid.propTypes = {
-  repos: PropTypes.array.isRequired
 };
 
 export default class Popular extends React.Component {

@@ -3,8 +3,8 @@ import queryString from "queryString";
 import api from "../utils/api";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import PlayerPreview from "./PlayerPreview";
-import Loading from "./Loading";
+import PlayerPreview from "../components/PlayerPreview";
+import Loading from "../components/Loading";
 
 function Profile(props) {
   let info = props.info;
