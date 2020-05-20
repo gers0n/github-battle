@@ -4,36 +4,29 @@ import PlayerPreview from "../components/PlayerPreview";
 import { PlayerInput } from "../components/PlayerInput";
 
 export default class Battle extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      playerOneName: "",
-      playerTwoName: "",
-      playerOneImage: null,
-      playerTwoImage: null
-    };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleReset = this.handleReset.bind(this);
-  }
-  handleSubmit(id, username) {
-    this.setState(function() {
+  state = {
+    playerOneName: "",
+    playerTwoName: "",
+    playerOneImage: null,
+    playerTwoImage: null,
+  };
+  handleSubmit = (id, username) => {
+    this.setState(function () {
       let newState = {};
       newState[id + "Name"] = username;
       newState[id + "Image"] =
         "https://github.com/" + username + ".png?size=200";
       return newState;
     });
-  }
-  handleReset(id) {
-    this.setState(function() {
+  };
+  handleReset = (id) => {
+    this.setState(function () {
       let newState = {};
       newState[id + "Name"] = "";
       newState[id + "Image"] = null;
       return newState;
     });
-  }
+  };
   render() {
     let playerOneName = this.state.playerOneName,
       playerTwoName = this.state.playerTwoName,
@@ -88,7 +81,7 @@ export default class Battle extends React.Component {
                 `?playerOneName=` +
                 playerOneName +
                 "&playerTwoName=" +
-                playerTwoName
+                playerTwoName,
             }}
           >
             Battle
@@ -98,4 +91,3 @@ export default class Battle extends React.Component {
     );
   }
 }
-

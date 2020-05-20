@@ -26,6 +26,7 @@ function Profile(props) {
     </PlayerPreview>
   );
 }
+
 function Player(props) {
   return (
     <div>
@@ -43,15 +44,11 @@ Player.propTypes = {
 };
 
 export default class Results extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      winner: null,
-      loser: null,
-      error: null,
-      loading: true
-    };
+  state = {
+    winner: null,
+    loser: null,
+    error: null,
+    loading: true
   }
   componentDidMount() {
     var players = queryString.parse(this.props.location.search.replace('?',''));

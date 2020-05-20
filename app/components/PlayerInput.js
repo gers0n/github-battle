@@ -2,51 +2,46 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export class PlayerInput extends React.Component {
-  constructor(props) {
-    console.info("props", props);
-    super(props);
-    this.state = {
-      username: ""
-    };
-        
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  handleChange(event) {
+  state = {
+    username: "",
+  };
+  handleChange = (event) => {
     var value = event.target.value;
-    this.setState(function() {
+    this.setState(function () {
       return {
-        username: value
+        username: value,
       };
     });
-  }
-  handleSubmit(event) {
+  };
+  handleSubmit = (event) => {
     event.preventDefault();
     this.props.onSubmit(this.props.id, this.state.username);
-  }
+  };
   render() {
     return (
-      <form className="column" onSubmit={this.handleSubmit}>
-        <label className="header" htmlFor="username">
-          {this.props.label}
-        </label>
-        <br />
-        <input
-          id="username"
-          placeholder="github username"
-          type="text"
-          autoComplete="off"
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
-        <button
-          className="button"
-          type="submit"
-          disabled={!this.state.username}
-        >
-          Submit
-        </button>
-      </form>
+      <div className="player">
+        <form className="column player-inputs " onSubmit={this.handleSubmit}>
+          <label className="player-label " htmlFor="username">
+            {this.props.label}
+          </label>
+          <br />
+          <input
+            id="username"
+            placeholder="github username"
+            type="text"
+            autoComplete="off"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+          <button
+            className="btn dark-btn"
+            type="submit"
+            disabled={!this.state.username}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     );
   }
 }

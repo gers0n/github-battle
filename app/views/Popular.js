@@ -5,12 +5,12 @@ import Loading from "../components/Loading";
 import { RepoGrid } from "../components/RepoGrid";
 
 /*this is a stateless component*/
-const SelectLanguage = props => {
+const SelectLanguage = (props) => {
   var languages = ["All", "Javascript", "Ruby", "Java", "CSS", "Python"];
 
   return (
     <ul className="languages">
-      {languages.map(language => {
+      {languages.map((language) => {
         return (
           <li
             style={
@@ -29,39 +29,34 @@ const SelectLanguage = props => {
 
 SelectLanguage.propTypes = {
   selectedLanguage: PropTypes.string.isRequired,
-  onSelect: PropTypes.func.isRequired
+  onSelect: PropTypes.func.isRequired,
 };
 
 export default class Popular extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedLanguage: "All",
-      repos: []
-    };
-
-    this.updateLanguage = this.updateLanguage.bind(this);
-  }
+  state = {
+    selectedLanguage: "All",
+    repos: [],
+  };
   componentDidMount() {
     /*invoke by react before construc UI*/
     this.updateLanguage(this.state.selectedLanguage);
   }
-  updateLanguage(lang) {
-    this.setState(function() {
+  updateLanguage = (lang) => {
+    this.setState(function () {
       return {
         selectedLanguage: lang,
-        repos: []
+        repos: [],
       };
     });
 
     api.fetchPopularRepos(lang).then(
-      function(repos) {
-        this.setState(function() {
+      function (repos) {
+        this.setState(function () {
           return { repos: repos };
         });
       }.bind(this)
     );
-  }
+  };
   render() {
     return (
       <div>
