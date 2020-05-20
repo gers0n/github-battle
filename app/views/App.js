@@ -1,20 +1,23 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Popular from "./Popular";
-import Nav from "../components/Nav";
-import Battle from "./Battle";
-import Results from "./Results";
-import Home from "./Home";
 import { ThemeProvider } from "../contexts/theme";
+import Nav from "../components/Nav";
+import Loading from "../components/Loading";
+
+// lazy dynamic import from react
+const Popular = React.lazy(() => import("./Popular"));
+const Battle = React.lazy(() => import("./Battle"));
+const Results = React.lazy(() => import("./Results"));
+const Home = React.lazy(() => import("./Home"));
 
 export default class App extends React.Component {
   state = {
     theme: "light",
     toggleTheme: () => {
       this.setState(({ theme }) => ({
-        theme: theme === 'light' ? 'dark' : 'light'
-      }))
-    }
+        theme: theme === "light" ? "dark" : "light",
+      }));
+    },
   };
   render() {
     // TODO Note: Add basename for github pages and also add a webpack config only for bh-pages
@@ -24,18 +27,20 @@ export default class App extends React.Component {
         <ThemeProvider value={this.state}>
           <div className="container">
             <Nav />
-            <Switch basename="/">
-              {/*render only an expecific route*/}
-              <Route exact path="/" component={Home} />
-              <Route exact path="/battle" component={Battle} />
-              <Route path="/battle/results" component={Results} />
-              <Route path="/popular" component={Popular} />
-              <Route
-                render={() => {
-                  return <p>Not Found</p>;
-                }}
-              />
-            </Switch>
+            <React.Suspense fallback={<Loading />}>
+              <Switch basename="/">
+                {/*render only an expecific route*/}
+                <Route exact path="/" component={Home} />
+                <Route exact path="/battle" component={Battle} />
+                <Route path="/battle/results" component={Results} />
+                <Route path="/popular" component={Popular} />
+                <Route
+                  render={() => {
+                    return <p>Not Found</p>;
+                  }}
+                />
+              </Switch>
+            </React.Suspense>
           </div>
         </ThemeProvider>
       </Router>
