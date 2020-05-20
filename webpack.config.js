@@ -30,22 +30,22 @@ const config = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
 };
 
-if (process.env.NODE_ENV === "production") {
-  config.optimization = {
-    minimizer: [
-      // we specify a custom UglifyJsPlugin here to get source maps in production
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        uglifyOptions: {
-          compress: false,
-          ecma: 6,
-          mangle: true
-        },
-        sourceMap: true
-      })
-    ]
-  }
-} 
+// if (process.env.NODE_ENV === "production") {
+//   config.optimization = {
+//     minimizer: [
+//       // we specify a custom UglifyJsPlugin here to get source maps in production
+//       new UglifyJsPlugin({
+//         cache: true,
+//         parallel: true,
+//         uglifyOptions: {
+//           compress: false,
+//           ecma: 6,
+//           mangle: true
+//         },
+//         sourceMap: true
+//       })
+//     ]
+//   }
+// } 
 
 module.exports = config;
