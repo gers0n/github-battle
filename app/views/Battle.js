@@ -45,14 +45,7 @@ export default class Battle extends React.Component {
             />
           )}
           {playerOneImage !== null && (
-            <PlayerPreview avatar={playerOneImage} username={playerOneName}>
-              <button
-                className="reset"
-                onClick={this.handleReset.bind(null, "playerOne")}
-              >
-                Reset
-              </button>
-            </PlayerPreview>
+            <PlayerPreview avatar={playerOneImage} username={playerOneName} label={"playerOne"} onReset={this.handleReset} />
           )}
           {!playerTwoName && (
             <PlayerInput
@@ -62,14 +55,7 @@ export default class Battle extends React.Component {
             />
           )}
           {playerTwoImage !== null && (
-            <PlayerPreview avatar={playerTwoImage} username={playerTwoName}>
-              <button
-                className="reset"
-                onClick={this.handleReset.bind(null, "playerTwo")}
-              >
-                Reset
-              </button>
-            </PlayerPreview>
+            <PlayerPreview avatar={playerTwoImage} username={playerTwoName} label={"playerTwo"} onReset={this.handleReset} />
           )}
         </div>
         {playerOneImage && playerTwoImage && (
