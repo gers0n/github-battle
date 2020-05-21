@@ -7,7 +7,7 @@
     "create": "webpack",
     "start": "webpack-dev-server --open",
     "build-win": "SET NODE_ENV='production' && webpack -p",
-    "build": "NODE_ENV='production' webpack -p",
+    "build": "NODE_ENV='production' webpack",
     "deploy": "npm run build && firebase deploy",
     "firebase-init": "firebase login && firebbase init",
     "predeploy": "npm run create",
@@ -27,12 +27,7 @@
   "author": "Fhillip G. Castillo",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
-    "query-string": "4.3.4",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-icons": "^3.9.0",
-    "react-router-dom": "^4.1.1"
+    "axios": "^0.19.2"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -49,6 +44,11 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.1"
+    "webpack-dev-server": "^3.2.1",
+    "query-string": "4.3.4",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-icons": "^3.9.0",
+    "react-router-dom": "^4.1.1"
   }
 }

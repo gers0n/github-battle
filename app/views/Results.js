@@ -52,6 +52,7 @@ export default class Results extends React.Component {
   }
   componentDidMount() {
     var players = queryString.parse(this.props.location.search.replace('?',''));
+    
 		api.battle([players.playerOneName, players.playerTwoName])
 		.then((results) => {
 			console.log('results', results);
