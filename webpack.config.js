@@ -27,7 +27,7 @@ const config = {
       template: "app/index.html",
     }),
   ],
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
 };
 
 // if (process.env.NODE_ENV === "production") {
