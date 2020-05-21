@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "../contexts/theme";
 import Nav from "../components/Nav";
 import Loading from "../components/Loading";
+import Results from "./Results";
 
 // lazy dynamic import from react
 const Popular = React.lazy(() => import("./Popular"));
 const Battle = React.lazy(() => import("./Battle"));
-const Results = React.lazy(() => import("./Results"));
 const Home = React.lazy(() => import("./Home"));
 
 export default class App extends React.Component {
