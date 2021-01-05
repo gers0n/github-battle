@@ -27,7 +27,7 @@
   "author": "Fhillip G. Castillo",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.4.0",
     "react": "^16.8.4",
